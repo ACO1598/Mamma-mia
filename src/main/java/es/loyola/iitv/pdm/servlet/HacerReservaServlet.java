@@ -29,8 +29,9 @@ public class HacerReservaServlet extends HttpServlet {
 		resp.setContentType("application/json");
 		PrintWriter writer= resp.getWriter();
 		JSONObject respuesta= new JSONObject();
+		JSONObject JSONReserva= new JSONObject();
 		
-//		int id_usuario= Integer.parseInt(req.getParameter("id_usuario"));
+		int id_usuario= Integer.parseInt(req.getParameter("id_usuario"));
 		int id_restaurante= Integer.parseInt(req.getParameter("res"));
 		int nPersonas= Integer.parseInt(req.getParameter("nPersonas"));
 		String strfecha= req.getParameter("fecha");
@@ -44,19 +45,23 @@ public class HacerReservaServlet extends HttpServlet {
 		
 		Reserva reserva= null;
 		if(fecha != null) {
-			reserva= new ReservaImpl(0, nPersonas, fecha,  id_restaurante);
+			reserva= new ReservaImpl(0, id_usuario, nPersonas, fecha,  id_restaurante);
 		}
 		
 		if(reserva != null) {
 			respuesta.put("code", "ok");
 			respuesta.put("message", "ok");
-			respuesta.put("result", reserva);
+			JSONReserva.put("id", reserva.getId());
+			JSONReserva.put("id_usuario", id_usuario);
+			JSONReserva.put("nPersonas", nPersonas);
+			JSONReserva.put("fecha", fecha);
+			JSONReserva.put("id_restaurante", id_restaurante);
+			respuesta.put("result", JSONReserva);
 		}else {
 			respuesta.put("code", "ERROR");
 			respuesta.put("message", "error haciendo la reserva");
 			respuesta.put("result", reserva);
 		}
-		
 		
 		writer.write(respuesta.toString());
 	}

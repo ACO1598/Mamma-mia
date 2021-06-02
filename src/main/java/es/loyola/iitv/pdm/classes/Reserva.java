@@ -15,4 +15,8 @@ public interface Reserva {
 	Date getFecha();
 	
 	void setFecha(Date fecha);
+	
+	int getId_user();
+	
+	void setId_user();
 }

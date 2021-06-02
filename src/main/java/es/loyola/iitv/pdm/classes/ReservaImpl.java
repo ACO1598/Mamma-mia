@@ -6,12 +6,13 @@ import es.loyola.iitv.pdm.classes.*;
 
 public class ReservaImpl implements Reserva{
 	
-	private int id, nPersonas;
+	private int id, id_user, nPersonas;
 	private Date fecha= new Date();
 	private int res;
 			
-	public ReservaImpl(int id, int nPersonas, Date fecha, int res) {
+	public ReservaImpl(int id, int id_user, int nPersonas, Date fecha, int res) {
 		this.setId(id);
+		this.setId_user(id_user);
 		this.setnPersonas(nPersonas);
 		this.setFecha(fecha);
 		this.setRes(res);
@@ -39,6 +40,12 @@ public class ReservaImpl implements Reserva{
 	}
 	public void setRes(int res) {
 		this.res = res;
+	}
+	public int getId_user() {
+		return id_user;
+	}
+	public void setId_user(int id_user) {
+		this.id_user = id_user;
 	}
 	@Override
 	public int hashCode() {
@@ -68,5 +75,9 @@ public class ReservaImpl implements Reserva{
 		if (nPersonas != other.nPersonas)
 			return false;
 		return true;
+	}
+	public void setId_user() {
+		// TODO Auto-generated method stub
+		
 	}
 }
