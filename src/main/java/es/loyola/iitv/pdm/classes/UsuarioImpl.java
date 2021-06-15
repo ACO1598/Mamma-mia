@@ -3,19 +3,19 @@ package es.loyola.iitv.pdm.classes;
 public class UsuarioImpl implements Usuario {
 	
 	private int id, n_telefono;
-	private String nombre, apellidos, correo, contraseña;
+	private String nombre, apellidos, correo, contrasena;
 	
 	public UsuarioImpl() {
 		
 	}
 
-	public UsuarioImpl(int id, int n_telefono, String nombre, String apellidos, String correo, String contraseña) {
+	public UsuarioImpl(int id, int n_telefono, String nombre, String apellidos, String correo, String contrasena) {
 		this.id = id;
 		this.n_telefono = n_telefono;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.correo = correo;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 	}
 
 	public int getId() {
@@ -58,12 +58,12 @@ public class UsuarioImpl implements Usuario {
 		this.correo = correo;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class UsuarioImpl implements Usuario {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
-		result = prime * result + ((contraseña == null) ? 0 : contraseña.hashCode());
+		result = prime * result + ((contrasena == null) ? 0 : contrasena.hashCode());
 		result = prime * result + ((correo == null) ? 0 : correo.hashCode());
 		result = prime * result + id;
 		result = prime * result + n_telefono;
@@ -93,10 +93,10 @@ public class UsuarioImpl implements Usuario {
 				return false;
 		} else if (!apellidos.equals(other.apellidos))
 			return false;
-		if (contraseña == null) {
-			if (other.contraseña != null)
+		if (contrasena == null) {
+			if (other.contrasena != null)
 				return false;
-		} else if (!contraseña.equals(other.contraseña))
+		} else if (!contrasena.equals(other.contrasena))
 			return false;
 		if (correo == null) {
 			if (other.correo != null)
@@ -118,7 +118,7 @@ public class UsuarioImpl implements Usuario {
 	@Override
 	public String toString() {
 		return "UsuarioImpl [id=" + id + ", n_telefono=" + n_telefono + ", nombre=" + nombre + ", apellidos="
-				+ apellidos + ", correo=" + correo + ", contraseña=" + contraseña + "]";
+				+ apellidos + ", correo=" + correo + ", contraseña=" + contrasena + "]";
 	}
 	
 }

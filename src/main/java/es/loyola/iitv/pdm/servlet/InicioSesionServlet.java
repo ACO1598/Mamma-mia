@@ -30,12 +30,12 @@ public class InicioSesionServlet extends HttpServlet{
 		JSONObject respuesta= new JSONObject();
 		
 		String correo= req.getParameter("correo_usuario");
-		String contraseña= req.getParameter("contraseña_usuario");
+		String contrasena= req.getParameter("contrasena_usuario");
 		Boolean check= false;
 		List<Usuario> users= DB.getUsuarios();
 		
 		for (Usuario user: users) {
-			if(user.getCorreo().equals(correo) && user.getContraseña().equals(contraseña)) {
+			if(user.getCorreo().equals(correo) && user.getContrasena().equals(contrasena)) {
 				check= true;
 			}
 		}
@@ -43,7 +43,7 @@ public class InicioSesionServlet extends HttpServlet{
 		if(check== true) {
 			respuesta.put("code", "ok");
 			respuesta.put("message", "Inicio de sesion satisfactorio");
-			respuesta.put("result", "");
+			respuesta.put("result", correo);
 		}else {
 			respuesta.put("code", "ERROR");
 			respuesta.put("message", "Error al iniciar sesion");

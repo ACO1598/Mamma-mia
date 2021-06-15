@@ -22,9 +22,9 @@ public interface Usuario {
 
 	void setCorreo(String correo);
 
-	String getContraseña();
+	String getContrasena();
 
-	void setContraseña(String contraseña);
+	void setContrasena(String contraseña);
 
 	int hashCode();
 
