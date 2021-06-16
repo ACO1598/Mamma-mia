@@ -37,11 +37,17 @@ public class RegistroServlet extends HttpServlet{
 		int n_users= DB.getUsuarios().size();
 		
 		if(nombre.isEmpty() && apellidos.isEmpty() && correo.isEmpty() && contraseña.isEmpty() && telf != 0) {
-			Usuario user= new UsuarioImpl((n_users), telf, nombre, apellidos, correo, contraseña);
+			JSONObject result= new JSONObject();
 			
 			respuesta.put("code", "ok");
 			respuesta.put("message", "Inicio de sesion satisfactorio");
-			respuesta.put("result", user);
+			result.put("id", n_users);
+			result.put("n_telefono", telf);
+			result.put("nombre", nombre);
+			result.put("apellidos", apellidos);
+			result.put("correo", correo);
+			result.put("contrasena", contraseña);
+			respuesta.put("result", result);
 		}else {
 			respuesta.put("code", "ERROR");
 			respuesta.put("message", "Ha habido un error en el registro");

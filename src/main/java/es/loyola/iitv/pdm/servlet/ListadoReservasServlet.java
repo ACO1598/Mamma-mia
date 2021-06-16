@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import es.loyola.iitv.pdm.classes.DB;
@@ -29,25 +30,33 @@ public class ListadoReservasServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("application/json");
+		resp.setHeader("Cache-Control", "no-cache");
+		resp.setHeader("Cache-Contorl", "no-store");
 		PrintWriter writer= resp.getWriter();
 		JSONObject respuesta= new JSONObject();
 		
 		int id= Integer.parseInt(req.getParameter("id_usuario")) ;
-		List<Reserva> reservas= new LinkedList<Reserva>();
+		JSONArray array= new JSONArray();
 		
 		for(Reserva reserva : DB.getReservas()) {
-			if(reserva.getId() == id) {
-				reservas.add(reserva);
+			if(reserva.getId_user() == id) {
+				JSONObject reserv= new JSONObject(); 
+				reserv.put("id", reserva.getId_user());
+				reserv.put("id_user", id);
+				reserv.put("nPersonas", reserva.getnPersonas());
+				reserv.put("fecha", reserva.getFecha());
+				reserv.put("res", reserva.getRes());
+				array.put(reserv);
 			}
 		}
-		if(reservas.isEmpty()) {
+		if(!array.isEmpty()) {
 			respuesta.put("code", "ok");
 			respuesta.put("message", "No hay ninguna reserva");
-			respuesta.put("result", reservas);
+			respuesta.put("result", array);
 		}else {
 			respuesta.put("code", "ok");
 			respuesta.put("message", "ok");
-			respuesta.put("result", reservas);
+			respuesta.put("result", array);
 		}
 		
 		writer.write(respuesta.toString());

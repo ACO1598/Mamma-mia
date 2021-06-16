@@ -19,4 +19,8 @@ public interface Reserva {
 	int getId_user();
 	
 	void setId_user();
+	
+	int getRes();
+	
+	void setRes(int res);
 }

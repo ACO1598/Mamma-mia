@@ -25,6 +25,8 @@ public class MostrarCartaServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("application/json");
+		resp.setHeader("Cache-Control", "no-cache");
+		resp.setHeader("Cache-Contorl", "no-store");
 		PrintWriter writer= resp.getWriter();
 		JSONObject respuesta= new JSONObject();
 		
