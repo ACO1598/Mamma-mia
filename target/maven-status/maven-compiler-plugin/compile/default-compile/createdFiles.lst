@@ -1,4 +1,5 @@
 es\loyola\iitv\pdm\classes\Ingredientes.class
+es\loyola\iitv\pdm\servlet\MostrarRestaurantesServlet.class
 es\loyola\iitv\pdm\classes\RestauranteImpl.class
 es\loyola\iitv\pdm\classes\ProductoImpl.class
 es\loyola\iitv\pdm\classes\UsuarioImpl.class
@@ -9,6 +10,7 @@ es\loyola\iitv\pdm\classes\DB.class
 es\loyola\iitv\pdm\servlet\HacerReservaServlet.class
 es\loyola\iitv\pdm\servlet\MostrarCartaServlet.class
 es\loyola\iitv\pdm\servlet\ListadoReservasServlet.class
+es\loyola\iitv\pdm\servlet\MostrarRestauranteServlet.class
 es\loyola\iitv\pdm\classes\ReservaImpl.class
 es\loyola\iitv\pdm\classes\CategoriaImpl.class
 es\loyola\iitv\pdm\servlet\RegistroServlet.class

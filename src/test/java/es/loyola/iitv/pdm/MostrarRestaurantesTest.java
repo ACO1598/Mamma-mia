@@ -49,22 +49,8 @@ public class MostrarRestaurantesTest {
 			assertTrue("Mensaje devuelto es incorrecto", message.equalsIgnoreCase("ok"));
 			
 			JSONArray array = obj.getJSONArray("result");
-			assertTrue("Tamaño array incorrecto", array.length() == 3);
+			assertTrue("Tamaño array incorrecto: " + array.length(), array.length() == 3);
 			
-			List<Restaurante> list = new LinkedList<Restaurante>();
-			for (int i = 0; i < array.length(); i++) {
-				JSONObject o1 = array.getJSONObject(i);
-				Integer id = o1.getInt("id");
-				Integer aforo = o1.getInt("aforo");
-				Integer telefono = o1.getInt("telefono");
-				String horario_Open = o1.getString("horario_Open");
-				String horario_Close = o1.getString("horario_Close");
-				Integer openDays = o1.getInt("openDays");
-				
-				//Restaurante r = new RestauranteImpl(id, aforo, telefono, horario_Open, horario_Close,openDays);
-				//list.add(r);
-				
-			}
 		}catch (IOException e) {
 			//TODO Auto-generated
 			e.printStackTrace();

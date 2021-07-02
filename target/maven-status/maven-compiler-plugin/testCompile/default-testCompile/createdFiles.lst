@@ -1,2 +1,5 @@
-es\loyola\iitv\pdm\ReservaTests.class
 es\loyola\iitv\pdm\DBTests.class
+es\loyola\iitv\pdm\ListadoReservasTest.class
+es\loyola\iitv\pdm\MostrarRestaurantesTest.class
+es\loyola\iitv\pdm\ReservaTests.class
+es\loyola\iitv\pdm\MostrarRestauranteTest.class

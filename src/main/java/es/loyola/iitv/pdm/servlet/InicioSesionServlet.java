@@ -26,6 +26,8 @@ public class InicioSesionServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("application/json");
+		resp.setHeader("Cache-Control", "no-cache");
+		resp.setHeader("Cache-Contorl", "no-store");
 		PrintWriter writer= resp.getWriter();
 		JSONObject respuesta= new JSONObject();
 		
@@ -44,6 +46,7 @@ public class InicioSesionServlet extends HttpServlet{
 			respuesta.put("code", "ok");
 			respuesta.put("message", "Inicio de sesion satisfactorio");
 			respuesta.put("result", correo);
+			//TODO devolver Usuario
 		}else {
 			respuesta.put("code", "ERROR");
 			respuesta.put("message", "Error al iniciar sesion");
