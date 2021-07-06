@@ -39,22 +39,24 @@ public class MostrarRestaurantesServlet extends HttpServlet{
 			
 			arrayRestaurantes.put(objetoJSON);
 			
-			if (!arrayRestaurantes.isEmpty()) {
-				JSONObject respuesta = new JSONObject();
-				respuesta.put("code", "ok");
-				respuesta.put("message", "ok");
-				respuesta.put("result", arrayRestaurantes);
-				
-				writer.write(respuesta.toString());
-			} else {
-				JSONObject respuesta = new JSONObject(); 
-				respuesta.put("code", "Error");
-				respuesta.put("message", "Empty List");
-				respuesta.put("result", new JSONObject());
-				
-				writer.write(respuesta.toString());
-			}
 			
+			
+		}
+		
+		if (!arrayRestaurantes.isEmpty()) {
+			JSONObject respuesta = new JSONObject();
+			respuesta.put("code", "ok");
+			respuesta.put("message", "ok");
+			respuesta.put("result", arrayRestaurantes);
+			
+			writer.write(respuesta.toString());
+		} else {
+			JSONObject respuesta = new JSONObject(); 
+			respuesta.put("code", "Error");
+			respuesta.put("message", "Empty List");
+			respuesta.put("result", new JSONObject());
+			
+			writer.write(respuesta.toString());
 		}
 	}
 

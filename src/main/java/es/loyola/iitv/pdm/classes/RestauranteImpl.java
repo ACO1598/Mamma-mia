@@ -26,6 +26,7 @@ public class RestauranteImpl implements Restaurante  {
 		this.setOpenDays(null);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public boolean comprobarHorario(Date fecha) {
 		
 		Calendar cal= Calendar.getInstance();

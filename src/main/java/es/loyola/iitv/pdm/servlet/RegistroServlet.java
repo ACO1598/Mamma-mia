@@ -15,7 +15,7 @@ import es.loyola.iitv.pdm.classes.DB;
 import es.loyola.iitv.pdm.classes.Usuario;
 import es.loyola.iitv.pdm.classes.UsuarioImpl;
 
-@WebServlet(urlPatterns="/hacerReserva")
+@WebServlet(urlPatterns="/registro")
 public class RegistroServlet extends HttpServlet{
 
 	/**
