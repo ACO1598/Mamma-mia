@@ -23,4 +23,8 @@ public interface Reserva {
 	int getRes();
 	
 	void setRes(int res);
+	
+	String getDireccion();
+	
+	void setDireccion(String direccion);
 }

@@ -29,6 +29,10 @@ public interface Restaurante {
 	int[] getOpenDays();
 
 	void setOpenDays(int[] openDays);
+	
+	String getDireccion();
+
+	void setDireccion(String direccion);
 
 	String toString();
 

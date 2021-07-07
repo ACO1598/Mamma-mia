@@ -7,14 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class DB {
-	//TODO Puesto que no tenemos base de datos despreciamos los datos nuevos que se introduzcan en el sistema?
-//	private List<Restaurante> restaurantes;
-//	private List<Reserva> reservas;
-//	private List<Usuario> usuarios;
-//	
-//	public DB() {
-//		
-//	}
 	
 	static public List<Restaurante> getRestaurantes(){
 		List<Restaurante> res= new LinkedList<Restaurante>();
@@ -27,7 +19,7 @@ public class DB {
 		}catch (ParseException e) { 
 	         System.out.println("Unparseable using " + f); 
 	    }
-		res.add(new RestauranteImpl(0, 30, 654213789, open, close, days));
+		res.add(new RestauranteImpl(0, 30, 654213789, open, close, days, "direccion1"));
 		days= new int[] {1,1,1,0,0,0,0};
 		try {
 			open= f.parse("06-00");
@@ -35,7 +27,7 @@ public class DB {
 		}catch (ParseException e) { 
 	         System.out.println("Unparseable using " + f); 
 	    }
-		res.add(new RestauranteImpl(1, 20, 987654312, open, close, days));
+		res.add(new RestauranteImpl(1, 20, 987654312, open, close, days, "direccion2"));
 		days= new int[] {1,1,1,1,1,1,0};
 		try {
 			open= f.parse("10-00");
@@ -43,7 +35,7 @@ public class DB {
 		}catch (ParseException e) { 
 	         System.out.println("Unparseable using " + f); 
 	    }
-		res.add(new RestauranteImpl(2, 60, 123456789, open, close, days));
+		res.add(new RestauranteImpl(2, 60, 123456789, open, close, days, "direccion3"));
 		return res;
 	}
 	
@@ -56,7 +48,7 @@ public class DB {
 		}catch (ParseException e) { 
 	         System.out.println("Unparseable using " + f); 
 	    }
-		reservas.add(new ReservaImpl(0, 0, 2, date, 0));
+		reservas.add(new ReservaImpl(0, 0, 2, date, 0, "direccion1"));
 		return reservas;
 	}
 	

@@ -7,14 +7,16 @@ public class RestauranteImpl implements Restaurante  {
 	private int id, aforo, telefono;
 	private Date horario_Open, horario_Close;
 	private int[] openDays;
+	private String direccion;
 	
-	public RestauranteImpl(int id, int aforo, int telefono, Date horario1, Date horario2, int[] openDays) {
+	public RestauranteImpl(int id, int aforo, int telefono, Date horario1, Date horario2, int[] openDays, String direccion) {
 		this.id = id;
 		this.aforo = aforo;
 		this.telefono = telefono;
 		this.horario_Open = horario1;
 		this.horario_Close = horario2;
 		this.openDays = openDays;
+		this.direccion= direccion;
 	}
 	
 	public RestauranteImpl() {
@@ -24,6 +26,7 @@ public class RestauranteImpl implements Restaurante  {
 		this.setHorario_Open(null);
 		this.setHorario_Close(null);
 		this.setOpenDays(null);
+		this.setDireccion(null);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -96,6 +99,14 @@ public class RestauranteImpl implements Restaurante  {
 
 	public void setOpenDays(int[] openDays) {
 		this.openDays = openDays;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	@Override

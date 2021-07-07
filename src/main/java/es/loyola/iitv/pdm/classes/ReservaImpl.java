@@ -9,13 +9,15 @@ public class ReservaImpl implements Reserva{
 	private int id, id_user, nPersonas;
 	private Date fecha= new Date();
 	private int res;
+	private String direccion;
 			
-	public ReservaImpl(int id, int id_user, int nPersonas, Date fecha, int res) {
+	public ReservaImpl(int id, int id_user, int nPersonas, Date fecha, int res, String direccion) {
 		this.setId(id);
 		this.setId_user(id_user);
 		this.setnPersonas(nPersonas);
 		this.setFecha(fecha);
 		this.setRes(res);
+		this.setDireccion(direccion);
 	}
 	public int getId() {
 		return id;
@@ -46,6 +48,12 @@ public class ReservaImpl implements Reserva{
 	}
 	public void setId_user(int id_user) {
 		this.id_user = id_user;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	@Override
 	public int hashCode() {

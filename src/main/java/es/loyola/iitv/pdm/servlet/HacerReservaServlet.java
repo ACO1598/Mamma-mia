@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import es.loyola.iitv.pdm.classes.DB;
 import es.loyola.iitv.pdm.classes.Reserva;
 import es.loyola.iitv.pdm.classes.ReservaImpl;
+import es.loyola.iitv.pdm.classes.Restaurante;
 
 @WebServlet(urlPatterns="/hacerReserva")
 public class HacerReservaServlet extends HttpServlet {
@@ -37,7 +39,7 @@ public class HacerReservaServlet extends HttpServlet {
 		int id_restaurante= Integer.parseInt(req.getParameter("res"));
 		int nPersonas= Integer.parseInt(req.getParameter("nPersonas"));
 		String strfecha= req.getParameter("fecha");
-		SimpleDateFormat formatdate= new SimpleDateFormat("HH-mm");
+		SimpleDateFormat formatdate= new SimpleDateFormat("dd-MM-HH-mm");
 		Date fecha= null;
 		try {
 			fecha= formatdate.parse(strfecha);
@@ -46,8 +48,15 @@ public class HacerReservaServlet extends HttpServlet {
 		}
 		
 		Reserva reserva= null;
+		String direccion= null;
+		for (Restaurante rest: DB.getRestaurantes()) {
+			if(rest.getId() == id_restaurante) {
+				direccion= rest.getDireccion();
+			}
+		}
+		
 		if(fecha != null) {
-			reserva= new ReservaImpl(0, id_usuario, nPersonas, fecha,  id_restaurante);
+			reserva= new ReservaImpl(1, id_usuario, nPersonas, fecha,  id_restaurante, direccion);
 		}
 		
 		if(reserva != null) {
@@ -58,6 +67,7 @@ public class HacerReservaServlet extends HttpServlet {
 			JSONReserva.put("nPersonas", nPersonas);
 			JSONReserva.put("fecha", fecha);
 			JSONReserva.put("id_restaurante", id_restaurante);
+			JSONReserva.put("direccion", direccion);
 			respuesta.put("result", JSONReserva);
 		}else {
 			respuesta.put("code", "ERROR");

@@ -50,6 +50,7 @@ public class MostrarRestauranteServlet extends HttpServlet{
 				result.put("horario_Open", res.getHorario_Open());
 				result.put("horario_Close", res.getHorario_Close());
 				result.put("openDays", res.getOpenDays());
+				result.put("direccion", res.getDireccion());
 				respuesta.put("code", "ok");
 				respuesta.put("message", "ok");
 				respuesta.put("result", result);

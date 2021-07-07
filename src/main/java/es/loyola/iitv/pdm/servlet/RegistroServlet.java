@@ -32,15 +32,15 @@ public class RegistroServlet extends HttpServlet{
 		String nombre= req.getParameter("nombre_usuario");
 		String apellidos= req.getParameter("apellidos_usuario");
 		String correo= req.getParameter("correo_usuario");
-		String contraseña= req.getParameter("contraseña_usuario");
+		String contraseña= req.getParameter("contrasena_usuario");
 		int telf= Integer.parseInt(req.getParameter("telefono_usuario"));
 		int n_users= DB.getUsuarios().size();
 		
-		if(nombre.isEmpty() && apellidos.isEmpty() && correo.isEmpty() && contraseña.isEmpty() && telf != 0) {
+		if(!nombre.isEmpty() && !apellidos.isEmpty() && !correo.isEmpty() && !contraseña.isEmpty() && telf != 0) {
 			JSONObject result= new JSONObject();
 			
 			respuesta.put("code", "ok");
-			respuesta.put("message", "Inicio de sesion satisfactorio");
+			respuesta.put("message", "Registro satisfactorio");
 			result.put("id", n_users);
 			result.put("n_telefono", telf);
 			result.put("nombre", nombre);
